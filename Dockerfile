@@ -13,11 +13,13 @@ RUN ls
 
 RUN ls -lart /go/src/github.com/wizhub/shbc/
 
-CMD if [ ${APP_ENV} = production ];
-	then
-	shbc;
-	else
-	go get github.com/wizhub/shbc && go build; && shbc;
+CMD if [ ${APP_ENV} = production ];\
+	then\
+	shbc;\
+	else\
+	go get github.com/wizhub/shbc && \
+	go build && \
+	shbc;\
 	fi
 
 EXPOSE 8081
